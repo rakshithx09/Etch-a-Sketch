@@ -1,7 +1,8 @@
-let num = 0, divwidth = 0, boxDimensions = 0, boxesAll;
+let num = 0, boxDimensions = 0, boxesAll;
 
 
 function initializeNum(){
+
     num=0
     const input=document.getElementById('input');
     num=Number(input.value) ;
@@ -29,7 +30,7 @@ function createBoxes() {
     //setting dimensions of box acc to canvas size
     boxesAll.forEach(boxes => {
 
-        boxes.style.cssText = ` background-color: beige ; width: ${30 / num}rem; height: ${30 / num}rem; box-sizing: border-box;`;
+        boxes.style.cssText = ` background-color:black ; width: ${30 / num}rem; height: ${30 / num}rem; box-sizing: border-box; `;
 
         //adding hover effect
         boxes.addEventListener('mouseenter', () => {
@@ -39,11 +40,15 @@ function createBoxes() {
                 console.log("timeout")
                 boxes.removeAttribute('id');
                 //boxes.classList.toggle('toggle');
-            }, 1600)
+            }, 200)
         });
     });
 }
 
+function removeBoxes(){
+    for (let i = 0; i < num * num; i++) {
+        
+    }
+}
 
 
-//createBoxes();
