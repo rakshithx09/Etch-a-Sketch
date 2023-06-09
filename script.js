@@ -63,15 +63,7 @@ function trailfunc(){
     boxesAll.forEach(boxes => {
 
         //adding hover effect
-        boxes.addEventListener('mouseenter', () => {
-            boxes.setAttribute('id', 'toggle');
-            //boxes.classList.toggle('toggle');
-            setTimeout(() => {
-                boxes.removeAttribute('id');
-                //boxes.classList.toggle('toggle');
-            }, 200);
-            
-        });
+        boxes.addEventListener('mouseenter', handleTrail);
     });
 }
 function erasefunc(){
@@ -85,10 +77,7 @@ function erasefunc(){
     boxesAll.forEach(boxes => {
 
        
-        boxes.addEventListener('mouseenter', () => {
-            boxes.removeAttribute('id', 'toggle');
-            
-        });
+        boxes.addEventListener('mouseenter', handleErase);
     });
 }
 
@@ -102,27 +91,16 @@ function drawfunc(){
 
     
     boxesAll.forEach(boxes => {
-        boxes.addEventListener('mouseenter', () => {
-            boxes.setAttribute('id', 'toggle');
-        });
+        boxes.addEventListener('mouseenter', handleDraw);
     });
 }
 
 function removeEvents(){
-    console.log("running") ;
+    
     if (trailFlag) {
          
         boxesAll.forEach(boxes => {
-            console.log("t");
-            boxes.removeEventListener('mouseenter', () => {
-                boxes.setAttribute('id', 'toggle');
-                
-                setTimeout(() => {
-                    boxes.removeAttribute('id');
-                    
-                }, 200);
-                
-            });
+            boxes.removeEventListener('mouseenter', handleTrail);
         });
     
     }
@@ -130,12 +108,9 @@ function removeEvents(){
     if (eraseFlag) {
        
         boxesAll.forEach(boxes => {
-            console.log("e");
+            
        
-            boxes.removeEventListener('mouseenter', () => {
-                boxes.removeAttribute('id', 'toggle');
-                
-            });
+            boxes.removeEventListener('mouseenter', handleErase);
         });
     
     }
@@ -143,13 +118,26 @@ function removeEvents(){
     if (drawFlag) {
         
         boxesAll.forEach(boxes => {
-            console.log("d");
-            boxes.removeEventListener('mouseenter', () => {
-                boxes.setAttribute('id', 'toggle');
-            });
+            
+            boxes.removeEventListener('mouseenter', handleDraw);
         });
     }
 
 
 
+}
+
+function handleTrail() {
+    this.setAttribute('id', 'toggle');
+    setTimeout(() => {
+        this.removeAttribute('id');
+    }, 200);
+}
+
+function handleErase() {
+    this.removeAttribute('id', 'toggle');
+}
+
+function handleDraw() {
+    this.setAttribute('id', 'toggle');
 }
