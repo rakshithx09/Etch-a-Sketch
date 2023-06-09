@@ -35,7 +35,7 @@ function createBoxes() {
     //setting dimensions of box acc to canvas size
     boxesAll.forEach(boxes => {
 
-        boxes.style.cssText = ` background-color:black ; width: ${30 / num}rem; height: ${30 / num}rem; box-sizing: border-box; border:1px solid white;`;
+        boxes.style.cssText = ` background-color:black ; width: ${30 / num}rem; height: ${30 / num}rem; box-sizing: border-box; `;
 
         //adding hover effect
         boxes.addEventListener('mouseenter', () => {
