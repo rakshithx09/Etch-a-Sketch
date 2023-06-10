@@ -7,7 +7,7 @@ let trailFlag = 0, drawFlag = 0, eraseFlag = 0;
 let isMouseDown = false;
 
 
-let isRed=0, isWhite=0, isCyan=0 ;
+let isRed=0, isWhite=0, isCyan=0, isMixed=0 ;
 
 
 const canvas = document.getElementById('mainCanvas');
@@ -19,10 +19,13 @@ const colorOptions = document.getElementById('colorOptions');
 const RED = document.getElementById('red');
 const WHITE = document.getElementById('white');
 const CYAN = document.getElementById('cyan');
+const MIXED = document.getElementById('mixed');
 
-RED.addEventListener('click',() => {isRed=1; isWhite=0; isCyan=0;});
-WHITE.addEventListener('click',() => {isRed=0; isWhite=1; isCyan=0;})
-CYAN.addEventListener('click',() => {isRed=0; isWhite=0; isCyan=1;})
+RED.addEventListener('click',() => {isRed=1; isWhite=0; isCyan=0; isMixed=0;});
+WHITE.addEventListener('click',() => {isRed=0; isWhite=1; isCyan=0; isMixed=0;});
+CYAN.addEventListener('click',() => {isRed=0; isWhite=0; isCyan=1; isMixed=0;});
+MIXED.addEventListener('click',() => {isRed=0; isWhite=0; isCyan=0; isMixed=1;});
+
 
 trail.addEventListener('click', trailfunc);
 erase.addEventListener('click', erasefunc);
@@ -172,6 +175,14 @@ function handleTrail() {
         this.style.backgroundColor='black';
     }, 200);
     }
+
+    if (isMixed) {
+        this.style.backgroundColor=`rgb( ${Number(Math.floor(Math.random()*266))}, ${Number(Math.floor(Math.random()*266))}, ${Number(Math.floor(Math.random()*266))})`;
+    setTimeout(() => {
+        this.style.backgroundColor='black';
+    }, 200);
+        
+    }
 }
 
 function handleErase() {
@@ -189,7 +200,9 @@ function handleDraw() {
         if (isWhite) {
             this.style.backgroundColor='rgb(255, 255, 255)';
         }     
-
+        if (isMixed) {
+            this.style.backgroundColor=`rgb( ${Number(Math.floor(Math.random()*266))}, ${Number(Math.floor(Math.random()*266))}, ${Number(Math.floor(Math.random()*266))})`;
+        }
     }
 }
 
