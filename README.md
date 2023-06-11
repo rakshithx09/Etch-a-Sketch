@@ -1,5 +1,8 @@
 #Etch-a-Sketch
 
+Use the below mentioned link to access the website
+https://rakshithx09.github.io/Etch-a-Sketch/
+
 A Canvas Drawing Tool which is a web application that allows users to create and interact with a customizable canvas for drawing. With this tool, users can specify the size of the canvas and select different drawing modes, including trail, erase, and draw. Additionally, users can choose from a set of four colors options. 
 
 How to Use:
