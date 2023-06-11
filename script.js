@@ -5,9 +5,7 @@ let removingBoxes; //node list of all the boxes while removing them
 let flag = 0; //flag to see if there are boxes currently present
 let trailFlag = 0, drawFlag = 0, eraseFlag = 0;
 let isMouseDown = false;
-
-
-let isRed=0, isWhite=0, isCyan=0, isMixed=0 ;
+let isRed = 0, isWhite = 0, isCyan = 0, isMixed = 0;
 
 
 const canvas = document.getElementById('mainCanvas');
@@ -15,16 +13,37 @@ const trail = document.getElementById('trail');
 const draw = document.getElementById('draw');
 const erase = document.getElementById('erase');
 const colorOptions = document.getElementById('colorOptions');
+const mainCanvas = document.getElementById('mainCanvas');
+const size1 = document.getElementById('size1');
+const size2 = document.getElementById('size2');
+const size3 = document.getElementById('size3');
+const size4 = document.getElementById('size4');
 
 const RED = document.getElementById('red');
 const WHITE = document.getElementById('white');
 const CYAN = document.getElementById('cyan');
 const MIXED = document.getElementById('mixed');
 
-RED.addEventListener('click',() => {isRed=1; isWhite=0; isCyan=0; isMixed=0;});
-WHITE.addEventListener('click',() => {isRed=0; isWhite=1; isCyan=0; isMixed=0;});
-CYAN.addEventListener('click',() => {isRed=0; isWhite=0; isCyan=1; isMixed=0;});
-MIXED.addEventListener('click',() => {isRed=0; isWhite=0; isCyan=0; isMixed=1;});
+RED.addEventListener('click', () => { isRed = 1; isWhite = 0; isCyan = 0; isMixed = 0; });
+WHITE.addEventListener('click', () => { isRed = 0; isWhite = 1; isCyan = 0; isMixed = 0; });
+CYAN.addEventListener('click', () => { isRed = 0; isWhite = 0; isCyan = 1; isMixed = 0; });
+MIXED.addEventListener('click', () => { isRed = 0; isWhite = 0; isCyan = 0; isMixed = 1; });
+size1.addEventListener('click', () => {
+    num = 80;
+    initializeNum();
+});
+size2.addEventListener('click', () => {
+    num = 60;
+    initializeNum();
+});
+size3.addEventListener('click', () => {
+    num = 40;
+    initializeNum();
+});
+size4.addEventListener('click', () => {
+    num = 20;
+    initializeNum();
+});
 
 
 trail.addEventListener('click', trailfunc);
@@ -37,9 +56,11 @@ function initializeNum() {
     if (flag) {
         removeBoxes();
     }
-    num = 0
-    const input = document.getElementById('input');
-    num = Number(input.value);
+    mainCanvas.style.border = '5px solid rgb(122, 122, 122)';
+    /* num = 0
+     const input = document.getElementById('input');
+     num = Number(input.value);
+     */
     createBoxes();
 }
 
@@ -72,8 +93,6 @@ function removeBoxes() {
 function trailfunc() {
 
     removeEvents();
-
-
 
     colorOptions.style.display = 'flex';
 
@@ -147,61 +166,56 @@ function removeEvents() {
             canvas.removeEventListener('mouseup', handleMouseUp);
         });
     }
-
-
-    //fhfhfhfhfhf
 }
-
-//before changing
 
 function handleTrail() {
 
     if (isCyan) {
-        this.style.backgroundColor='rgb(30, 245, 173)';
-    setTimeout(() => {
-        this.style.backgroundColor='black';
-    }, 200);
+        this.style.backgroundColor = 'rgb(30, 245, 173)';
+        setTimeout(() => {
+            this.style.backgroundColor = 'black';
+        }, 200);
     }
 
     if (isWhite) {
-        this.style.backgroundColor='rgb(255, 255, 255)';
-    setTimeout(() => {
-        this.style.backgroundColor='black';
-    }, 200);
+        this.style.backgroundColor = 'rgb(255, 255, 255)';
+        setTimeout(() => {
+            this.style.backgroundColor = 'black';
+        }, 200);
     }
     if (isRed) {
-        this.style.backgroundColor='rgb(236, 9, 9)';
-    setTimeout(() => {
-        this.style.backgroundColor='black';
-    }, 200);
+        this.style.backgroundColor = 'rgb(236, 9, 9)';
+        setTimeout(() => {
+            this.style.backgroundColor = 'black';
+        }, 200);
     }
 
     if (isMixed) {
-        this.style.backgroundColor=`rgb( ${Number(Math.floor(Math.random()*266))}, ${Number(Math.floor(Math.random()*266))}, ${Number(Math.floor(Math.random()*266))})`;
-    setTimeout(() => {
-        this.style.backgroundColor='black';
-    }, 200);
-        
+        this.style.backgroundColor = `rgb( ${Number(Math.floor(Math.random() * 266))}, ${Number(Math.floor(Math.random() * 266))}, ${Number(Math.floor(Math.random() * 266))})`;
+        setTimeout(() => {
+            this.style.backgroundColor = 'black';
+        }, 200);
+
     }
 }
 
 function handleErase() {
-    this.style.backgroundColor='black';
+    this.style.backgroundColor = 'black';
 }
 
 function handleDraw() {
     if (isMouseDown) {
         if (isRed) {
-            this.style.backgroundColor='red';
+            this.style.backgroundColor = 'red';
         }
         if (isCyan) {
-            this.style.backgroundColor='rgb(30, 245, 173)';
-        } 
+            this.style.backgroundColor = 'rgb(30, 245, 173)';
+        }
         if (isWhite) {
-            this.style.backgroundColor='rgb(255, 255, 255)';
-        }     
+            this.style.backgroundColor = 'rgb(255, 255, 255)';
+        }
         if (isMixed) {
-            this.style.backgroundColor=`rgb( ${Number(Math.floor(Math.random()*266))}, ${Number(Math.floor(Math.random()*266))}, ${Number(Math.floor(Math.random()*266))})`;
+            this.style.backgroundColor = `rgb( ${Number(Math.floor(Math.random() * 266))}, ${Number(Math.floor(Math.random() * 266))}, ${Number(Math.floor(Math.random() * 266))})`;
         }
     }
 }
@@ -213,3 +227,7 @@ function handleMouseDown() {
 function handleMouseUp() {
     isMouseDown = false;
 }
+
+
+
+

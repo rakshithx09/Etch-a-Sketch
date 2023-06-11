@@ -7,31 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
     <title>Etch-a-Sketch</title>
 </head>
 
 <body>
     <div class="fullbody" id="fullbody">
         <div class="settings" id="settings">
-            <div class="inputbox">
-                    <input type="number" id="input">
-                    <button onclick="initializeNum()">ok</button>
+
+            <h3>Choose Paint Brush size</h3>
+            <div class="paintBrushMenu" id="paintBrushMenu">
+                <div class="size" id="size1">1</div>
+                <div class="size" id="size2">2</div>
+                <div class="size" id="size3">3</div>
+                <div class="size" id="size4">4</div>
             </div>
+
+            <h3>Choose Drawing mode</h3>
             <div class="options" id="options">
                 <div class="option" id="trail">TRAIL</div>
                 <div class="option" id="draw">DRAW</div>
                 <div class="option" id="erase">ERASE</div>
             </div>
-            
 
+            <div class="options " id="colorOptions">
+
+                <h3>Choose color</h3>
+                <div class="color">
+                    <div class="option" id="cyan">CYAN</div>
+                    <div class="option" id="white">WHITE</div>
+                    <div class="option" id="red">RED</div>
+                    <div class="option" id="mixed">MIXED</div>
+                </div>
+
+            </div>
 
         </div>
-        <div class="options color" id="colorOptions">
-            <div class="option" id="cyan">CYAN</div>
-            <div class="option" id="white">WHITE</div>
-            <div class="option" id="red">RED</div>
-            <div class="option" id="mixed">MIXED</div>
-        </div>
+
+
+
+
+
 
         <div class="mainCanvas" id="mainCanvas">
 
