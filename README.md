@@ -21,6 +21,4 @@ Features:
 - Draw mode for freehand drawing
 - Color selection from a set of four color modes
 
-The Canvas Drawing Tool is built using HTML, CSS, and JavaScript, providing a lightweight and accessible solution for digital art enthusiasts. Whether you're a beginner or an experienced artist, this tool offers a simple yet powerful way to express your imagination through digital drawing.
 
-Contributions and feedback are welcome. Feel free to explore, enhance, and customize the tool to suit your specific needs or contribute to its development.
